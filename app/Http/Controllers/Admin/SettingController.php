@@ -61,6 +61,8 @@ class SettingController extends Controller
             'is_display_cart' => 'nullable|in:0,1',
             'is_display_wishlist' => 'nullable|in:0,1',
             'is_display_brand_slider' => 'nullable|in:0,1',
+            'theme_color' => 'nullable',
+            'hover_color' => 'nullable',
         ]);
 
         $setting = Setting::findOrFail($id);
@@ -85,6 +87,8 @@ class SettingController extends Controller
         $setting->is_display_cart = $request->is_display_cart;
         $setting->is_display_wishlist = $request->is_display_wishlist;
         $setting->is_display_brand_slider = $request->is_display_brand_slider;
+        $setting->theme_color = $request->theme_color;
+        $setting->hover_color = $request->hover_color;
 
         if ($request->hasFile('default_image')) {
             if ($setting->default_image) {

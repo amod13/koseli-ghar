@@ -212,6 +212,31 @@
             </div>
         </div>
 
+        {{-- Theme Color Setting --}}
+          <div class="row">
+            <div class="col-lg-3">
+                <h5 class="fs-16">Theme Color Settings</h5>
+            </div>
+            <div class="col-lg-9">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-lg-6">
+                                <label for="Theme Color" class="form-label">Theme Color</label>
+                                <input type="color" class="form-control" id="theme_color" name="theme_color"
+                                    value="{{ old('theme_color', $data['setting']->theme_color ?? '') }}">
+                            </div>
+                            <div class="col-lg-6">
+                                <label for="Hover Color" class="form-label">Hover Color</label>
+                                <input type="color" class="form-control" id="hover_color" name="hover_color"
+                                    value="{{ old('hover_color', $data['setting']->hover_color ?? '') }}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Logo & Favicon -->
         <div class="row">
             <div class="col-lg-3">

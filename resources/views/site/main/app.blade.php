@@ -58,6 +58,16 @@
     </script>
 
 
+    <style>
+        :root {
+            --primary-color: {{ $data['setting']->theme_color ?? '#179bae' }};
+            --secondary-color: {{ $data['setting']->hover_color ?? '#179bae' }};
+        }
+    </style>
+
+
+
+
     <!-- Place favicon.ico in the root directory -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('uploads/images/site/' . $data['setting']->favicon) }}">
 

@@ -34,5 +34,7 @@ class Setting extends Model
         'is_display_cart',
         'is_display_wishlist',
         'is_display_brand_slider',
+        'theme_color',
+        'hover_color',
     ];
 }
