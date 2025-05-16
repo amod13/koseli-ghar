@@ -20,18 +20,25 @@
                     <h5 class="fw-bold text-uppercase mb-3">Contact Information</h5>
                     <ul class="list-unstyled">
                         <li class="mb-2">
-                            <strong>Address:</strong> <span>{{ $data['setting']->address ?? '' }}</span>
+                            <i class="fa-solid fa-location-dot me-2"></i>
+                            <strong>Address:</strong>
+                            <span>{{ $data['setting']->address ?? '' }}</span>
                         </li>
                         <li class="mb-2">
-                            <strong>Phone:</strong> <span>{{ $data['setting']->phone ?? '' }}</span>
+                            <i class="fa-solid fa-phone me-2"></i>
+                            <strong>Phone:</strong>
+                            <span>{{ $data['setting']->phone ?? '' }}</span>
                         </li>
                         <li class="mb-2">
+                            <i class="fa-solid fa-envelope me-2"></i>
                             <strong>Email:</strong>
-                            <a href="mailto:{{ $data['setting']->email ?? '' }}" class="text-decoration-none" style="color: #fff;">
+                            <a href="mailto:{{ $data['setting']->email ?? '' }}" class="text-decoration-none"
+                                style="color: #fff;">
                                 {{ $data['setting']->email }}
                             </a>
                         </li>
                     </ul>
+
                 </div>
             </div>
 
@@ -40,8 +47,8 @@
                 <h5 class="fw-bold text-uppercase mb-3">Find Us</h5>
                 <!-- Embed Google Map -->
                 <div class="map-container mb-4">
-                    <iframe src="{{ $data['setting']->google_map ?? '' }}"
-                            width="100%" height="200" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="{{ $data['setting']->google_map ?? '' }}" width="100%" height="200"
+                        style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
 
@@ -51,29 +58,34 @@
                 <!-- Social Media Icons -->
                 <div class="social-icons">
                     @if ($data['setting']->facebook ?? '')
-                    <a href="{{ $data['setting']->facebook ?? '' }}" class="text-white me-3" style="font-size: 24px;" target="__blank">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
+                        <a href="{{ $data['setting']->facebook ?? '' }}" class="text-white me-3"
+                            style="font-size: 24px;" target="__blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
                     @endif
                     @if ($data['setting']->twitter ?? '')
-                    <a href="{{ $data['setting']->twitter ?? '' }}" class="text-white me-3" style="font-size: 24px;" target="__blank">
-                        <i class="fab fa-twitter"></i>
-                    </a>
+                        <a href="{{ $data['setting']->twitter ?? '' }}" class="text-white me-3" style="font-size: 24px;"
+                            target="__blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
                     @endif
                     @if ($data['setting']->instagram ?? '')
-                    <a href="{{ $data['setting']->instagram ?? '' }}" class="text-white me-3" style="font-size: 24px;" target="__blank">
-                        <i class="fab fa-instagram"></i>
-                    </a>
+                        <a href="{{ $data['setting']->instagram ?? '' }}" class="text-white me-3"
+                            style="font-size: 24px;" target="__blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
                     @endif
                     @if ($data['setting']->youtube ?? '')
-                        <a href="{{ $data['setting']->youtube ?? '' }}" class="text-white" style="font-size: 24px;" target="__blank">
+                        <a href="{{ $data['setting']->youtube ?? '' }}" class="text-white" style="font-size: 24px;"
+                            target="__blank">
                             <i class="fab fa-youtube"></i>
                         </a>
                     @endif
                     <br>
                     <br>
-                     <!-- Track Order Link -->
-                     <a href="{{ route('user.track.order') }}" class="btn btn-outline-light btn-sm d-inline-flex align-items-center track-order-link">
+                    <!-- Track Order Link -->
+                    <a href="{{ route('user.track.order') }}"
+                        class="btn btn-outline-light btn-sm d-inline-flex align-items-center track-order-link">
                         <i class="fas fa-shipping-fast me-2"></i> Track Order
                     </a>
                 </div>
@@ -87,7 +99,8 @@
     <div class="footer__bottom bg-black text-white py-3 mt-4">
         <div class="container text-center">
             <p class="mb-0">
-                &copy; {{ now()->year }} <strong>{{ $data['setting']->site_name ?? '' }}</strong>. All Rights Reserved. |
+                &copy; {{ now()->year }} <strong>{{ $data['setting']->site_name ?? '' }}</strong>. All Rights
+                Reserved. |
                 <a href="#" class="text-decoration-none text-white">Privacy Policy</a> |
                 <a href="#" class="text-decoration-none text-white">Terms & Conditions</a>
             </p>
@@ -133,12 +146,12 @@
 
 
     @auth
-    <a class="item account" href="{{ route('site.user.profile') }}">
-        <div class="icon">
-            <i class="fa-solid fa-user"></i>
-        </div>
-        <span class="text">Account</span>
-    </a>
+        <a class="item account" href="{{ route('site.user.profile') }}">
+            <div class="icon">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <span class="text">Account</span>
+        </a>
     @endauth
     <a class="item account" href="{{ route('user.login') }}">
         <div class="icon">
@@ -175,31 +188,31 @@
     </style>
 
 
-<!-- DELETE CONFIRMATION MODAL -->
-<div id="deleteModal" class="modal fade zoomIn" tabindex="-1" aria-hidden="true" role="dialog">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header border-0">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body p-md-5">
-                <div class="text-center modal-content-body">
-                    <div class="text-danger">
-                        <i class="bi bi-exclamation-triangle display-4"></i>
-                    </div>
-                    <div class="mt-4 fs-15">
-                        <h4 class="mb-1">Are you sure?</h4>
-                        <p class="text-muted mx-4 mb-0">This action cannot be undone.</p>
-                    </div>
+    <!-- DELETE CONFIRMATION MODAL -->
+    <div id="deleteModal" class="modal fade zoomIn" tabindex="-1" aria-hidden="true" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
-                    <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn w-sm btn-danger" id="confirmDelete">Yes, Delete</button>
+                <div class="modal-body p-md-5">
+                    <div class="text-center modal-content-body">
+                        <div class="text-danger">
+                            <i class="bi bi-exclamation-triangle display-4"></i>
+                        </div>
+                        <div class="mt-4 fs-15">
+                            <h4 class="mb-1">Are you sure?</h4>
+                            <p class="text-muted mx-4 mb-0">This action cannot be undone.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
+                        <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn w-sm btn-danger" id="confirmDelete">Yes, Delete</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 
 </nav>
